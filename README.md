@@ -221,15 +221,18 @@ curl -X POST http://localhost:3000/api/users/import
 
 # Verify database
 psql -U postgres -d csv_converter -c "SELECT COUNT(*) FROM users;"
+*also to shee all of the json data in database use SELECT COUNT FROM users;*
 ```
+also one can use node fetch.js to convert csv to output.json 
+*output images:*
+
 <img width="1920" height="833" alt="image" src="https://github.com/user-attachments/assets/ffb6b9bf-8f58-4a77-b2da-eedc05d8cdef" />
 
 <img width="879" height="195" alt="image" src="https://github.com/user-attachments/assets/117f10a5-6c3c-4f3f-9e4a-f89518fb4d0b" />
 <img width="1007" height="219" alt="image" src="https://github.com/user-attachments/assets/89d9628b-8408-4442-af2f-3f3638db65e4" />
 
-https://github.com/user-attachments/assets/412e9a84-163d-4b25-b79f-f04d1db57582
 
-
+https://github.com/user-attachments/assets/937fe795-f7f8-4540-b214-9886f6822e7b
 
 
 ```
