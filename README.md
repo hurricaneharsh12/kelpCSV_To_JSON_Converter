@@ -21,18 +21,15 @@ A production-quality Node.js API that converts CSV files to JSON and stores data
 
 ## Installation
 
-1. Clone the repository:
-```bash
-git clone <repository-url>
-cd csv-to-json-api
-```
 
-2. Install dependencies:
+
+
+1. Install dependencies:
 ```bash
 npm install
 ```
 
-3. Set up PostgreSQL database:
+2. Set up PostgreSQL database:
 ```bash
 # Connect to PostgreSQL
 psql -U postgres
@@ -47,15 +44,9 @@ CREATE DATABASE csv_converter;
 \i src/models/init.sql
 ```
 
-4. Configure environment variables:
-```bash
-cp .env.example .env
-# Edit .env with your database credentials
-```
-
 ## Configuration
 
-Edit `.env` file:
+`.env` file:
 
 ```env
 PORT=3000
@@ -63,7 +54,7 @@ DB_HOST=localhost
 DB_PORT=5432
 DB_NAME=csv_converter
 DB_USER=postgres
-DB_PASSWORD=your_password
+DB_PASSWORD=newpassword
 CSV_FILE_PATH=./data/sample.csv
 ```
 
@@ -144,9 +135,9 @@ curl http://localhost:3000/api/users/age-distribution
 
 ### Example CSV:
 ```csv
-name.firstName,name.lastName,age,address.line1,address.line2,address.city,address.state
-John,Doe,25,123 Main St,Apt 4B,New York,NY
-Jane,Smith,35,456 Oak Ave,,Los Angeles,CA
+name.firstName,name.lastName,age,address.line1,address.line2,address.city,address.state,gender
+John,Doe,25,123 Main St,Apt 4B,New York,NY,male
+Jane,Smith,35,456 Oak Ave,,Los Angeles,CA,male
 ```
 
 ### Mandatory Fields:
@@ -161,16 +152,14 @@ Jane,Smith,35,456 Oak Ave,,Los Angeles,CA
 
 ## Database Schema
 
-```sql
-CREATE TABLE users (
-    id SERIAL PRIMARY KEY,
-    name VARCHAR(255) NOT NULL,              -- firstName + lastName
-    age INTEGER NOT NULL,
-    address JSONB,                           -- All address.* fields
-    additional_info JSONB,                   -- All other fields
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+CREATE TABLE public.users (
+"name" varchar NOT NULL, (name = firstName + lastName)
+age int4 NOT NULL, address
+jsonb NULL,
+additional_info jsonb NULL, id
+serial4 NOT NULL
 );
-```
+
 
 ## Architecture
 
@@ -223,13 +212,6 @@ csv-to-json-api/
 5. Empty values are treated as NULL
 6. Numeric values are automatically parsed
 
-## Development
-
-### Code Style
-- Consistent formatting
-- JSDoc comments for all methods
-- Error handling at all levels
-- Modular architecture
 
 ### Testing Recommendations
 ```bash
@@ -241,28 +223,11 @@ curl -X POST http://localhost:3000/api/users/import
 psql -U postgres -d csv_converter -c "SELECT COUNT(*) FROM users;"
 ```
 
-## Troubleshooting
 
-### Database Connection Error
-```bash
-# Verify PostgreSQL is running
-pg_isready
+https://github.com/user-attachments/assets/97cb141a-44a1-421d-bd03-d8fb693f8b01
 
-# Check credentials in .env file
+
+
 ```
 
-### CSV Parse Error
-```bash
-# Ensure CSV format is correct
-# Check for proper comma separation
-# Verify headers match data columns
-```
-
-## License
-
-ISC
-
-## Author
-
-Created for Kelp Global Coding Challenge
 ```
