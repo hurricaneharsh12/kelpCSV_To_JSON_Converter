@@ -222,11 +222,12 @@ curl -X POST http://localhost:3000/api/users/import
 # Verify database
 psql -U postgres -d csv_converter -c "SELECT COUNT(*) FROM users;"
 ```
+<img width="1920" height="833" alt="image" src="https://github.com/user-attachments/assets/ffb6b9bf-8f58-4a77-b2da-eedc05d8cdef" />
 
+<img width="879" height="195" alt="image" src="https://github.com/user-attachments/assets/117f10a5-6c3c-4f3f-9e4a-f89518fb4d0b" />
+<img width="1007" height="219" alt="image" src="https://github.com/user-attachments/assets/89d9628b-8408-4442-af2f-3f3638db65e4" />
 
-
-Uploading GitHub - hurricaneharsh12_kelpCSV_To_JSON_Converter - Comet 2025-10-26 07-43-32.mp4…
-
+https://github.com/user-attachments/assets/412e9a84-163d-4b25-b79f-f04d1db57582
 
 
 
